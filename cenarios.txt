@@ -1,9 +1,13 @@
 ;
 ./Cenarios/At-Grand-Canyon.jpg;
 ./Cenarios/front_canyon.tif;
+
 ./Cenarios/godzilla-bckg.jpg;
 ./Cenarios/Godzilla2.png;
+
 ./Cenarios/Star-Wars-Battlefront.jpg;
 ./Cenarios/Godzilla2.png;
-./Cenarios/mariobros_ceu.jpeg;
-./Cenarios/mariobros_coisas.jpeg;
+
+./Cenarios/mariobros_fundo.png;
+./Cenarios/mariobros_frente.png;
+
