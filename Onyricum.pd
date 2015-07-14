@@ -1,4 +1,4 @@
-#N canvas 147 254 490 329 10;
+#N canvas 141 257 490 329 10;
 #N canvas 1 200 647 354 kinect 0;
 #X obj 304 93 gemhead;
 #N canvas 285 341 844 360 properties 0;
@@ -10,7 +10,7 @@
 #X floatatom 18 207 5 0 0 0 - - -, f 5;
 #X msg 95 230 angle \$1;
 #X obj 95 74 vsl 15 128 -30 30 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6083 1;
+-1 -1 0 1;
 #X floatatom 95 211 5 0 0 0 - - -, f 5;
 #X msg 45 49 0;
 #X text 34 125 GREEN;
@@ -123,10 +123,10 @@ down!!;
 #X obj 422 211 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj 491 249 nbx 5 14 -1e+37 1e+37 0 0 empty empty hi_thresh 0 -8
-0 10 -262144 -1 -1 2128.51 256;
+0 10 -262144 -1 -1 10000 256;
 #X obj 401 272 pix_depth2rgba 5000 100;
 #X obj 555 247 nbx 5 14 -1e+37 1e+37 0 0 empty empty lo_thresh 0 -8
-0 10 -262144 -1 -1 1004.02 256;
+0 10 -262144 -1 -1 0 256;
 #N canvas 128 461 569 230 thresholds 0;
 #X obj 69 177 outlet;
 #X msg 31 63 lo_thresh \$1;
@@ -162,19 +162,19 @@ hi_thresh;
 #X msg 538 183 10000;
 #X obj 559 64 r B;
 #X obj 168 32 vsl 15 250 0 10000 0 0 empty maxDist-r empty 0 -9 0 10
--262144 -1 -1 5300 1;
+-262144 -1 -1 0 1;
 #X obj 199 33 vsl 15 250 0 10000 0 0 empty minDist-r empty 0 -9 0 10
--262144 -1 -1 2500 1;
+-262144 -1 -1 0 1;
 #X obj 97 90 vsl 15 128 -30 30 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6083 1;
+-1 -1 0 1;
 #X msg 47 65 0;
 #X msg 82 64 20;
 #X text 107 65 ground;
 #X obj 64 246 s CamAngle;
 #X obj 232 298 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-r empty 0 -8
-0 10 -262144 -1 -1 1004.02 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 170 298 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-r empty 0 -8
-0 10 -262144 -1 -1 2128.51 256;
+0 10 -262144 -1 -1 0 256;
 #X connect 0 0 7 0;
 #X connect 5 0 7 0;
 #X connect 6 0 7 0;
@@ -273,9 +273,9 @@ hi_thresh;
 #X restore 18 117 pd init;
 #X obj 18 94 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 49 85 645 656 cenarios 0;
-#X obj 351 125 textfile;
-#X msg 309 18 read cenarios.txt \, rewind;
+#N canvas 403 86 645 656 cenarios 0;
+#X obj 324 219 textfile;
+#X msg 287 112 read cenarios.txt \, rewind;
 #X obj 18 217 pix_texture;
 #X obj 18 240 rectangle 5.33 4;
 #X obj 18 27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
@@ -303,28 +303,25 @@ hi_thresh;
 #X text 38 26 Background;
 #X text 25 296 Foreground;
 #X obj 18 194 pix_image ./Cenarios/At-Grand-Canyon.jpg;
-#X obj 351 235 t a b;
-#X obj 378 271 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 329 329 t a b;
+#X obj 356 365 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 351 300 demux;
-#X obj 378 343 s BackImage;
-#X obj 351 378 s FrontImage;
-#X obj 38 156 prepend open;
-#X obj 20 481 prepend open;
+#X obj 329 394 demux;
+#X obj 356 437 s BackImage;
+#X obj 329 472 s FrontImage;
 #X floatatom 83 571 5 0 0 0 - - -, f 5;
 #X floatatom 45 571 5 0 0 0 - - -, f 5;
 #X obj 8 410 translateXYZ 0 0 1;
 #X obj 8 590 rectangle 4 3, f 12;
-#X msg 409 248 0;
-#X obj 389 79 t b b b;
-#X obj 390 51 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 520 49 + 1;
-#X obj 520 27 f -1;
-#X obj 348 153 t b a, f 7;
-#X msg 559 7 -1;
-#X obj 520 71 mod 8;
-#X obj 390 195 sel 7;
+#X msg 387 342 0;
+#X obj 367 173 t b b b;
+#X obj 368 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 498 143 + 1;
+#X obj 498 121 f -1;
+#X msg 537 101 -1;
+#X obj 498 165 mod 8;
+#X obj 368 289 sel 7;
 #N canvas 1 54 450 300 CenariosTamanho 0;
 #X obj 313 138 + 1;
 #X obj 313 116 f -1;
@@ -354,32 +351,35 @@ hi_thresh;
 #X connect 9 1 3 0;
 #X connect 9 2 4 0;
 #X connect 10 0 9 0;
-#X restore 483 157 pd CenariosTamanho;
-#X obj 483 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X restore 461 251 pd CenariosTamanho;
+#X obj 461 227 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 483 181 5 0 0 0 - - -, f 5;
-#X obj 483 200 t f f;
-#X obj 483 221 - 1;
-#X obj 504 105 loadbang;
-#X obj 385 -15 metro 120000;
-#X obj 388 -49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X floatatom 461 275 5 0 0 0 - - -, f 5;
+#X obj 461 294 t f f;
+#X obj 461 315 - 1;
+#X obj 482 199 loadbang;
+#X obj 363 79 metro 120000;
+#X obj 366 45 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 413 -45 loadbang;
-#X floatatom 579 90 5 0 0 0 - - -, f 5;
-#X obj 293 -24 r cenarioBang;
-#X connect 0 0 42 0;
+#X obj 284 28 loadbang;
+#X floatatom 557 184 5 0 0 0 - - -, f 5;
+#X obj 391 143 r cenarioBang;
+#X obj 326 247 t b a, f 6;
+#X obj 38 154 cyclone/prepend open;
+#X obj 20 482 cyclone/prepend open;
+#X connect 0 0 54 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
 #X connect 4 0 12 0;
-#X connect 5 0 36 0;
+#X connect 5 0 34 0;
 #X connect 6 0 11 1;
-#X connect 7 0 35 3;
+#X connect 7 0 33 3;
 #X connect 8 0 9 0;
-#X connect 9 0 35 0;
-#X connect 10 0 35 2;
+#X connect 9 0 33 0;
+#X connect 10 0 33 2;
 #X connect 11 0 20 0;
 #X connect 12 0 14 0;
-#X connect 13 0 35 1;
+#X connect 13 0 33 1;
 #X connect 14 0 25 0;
 #X connect 15 0 14 1;
 #X connect 16 0 13 0;
@@ -387,53 +387,54 @@ hi_thresh;
 #X connect 18 0 10 0;
 #X connect 19 0 18 0;
 #X connect 20 0 5 0;
-#X connect 21 0 32 0;
-#X connect 22 0 31 0;
+#X connect 21 0 56 0;
+#X connect 22 0 55 0;
 #X connect 25 0 2 0;
 #X connect 26 0 28 0;
 #X connect 26 1 27 0;
 #X connect 27 0 28 1;
 #X connect 28 0 30 0;
 #X connect 28 1 29 0;
-#X connect 31 0 25 0;
-#X connect 32 0 20 0;
-#X connect 33 0 36 2;
-#X connect 34 0 36 1;
-#X connect 35 0 11 0;
-#X connect 37 0 27 0;
-#X connect 38 0 0 0;
-#X connect 38 1 0 0;
+#X connect 31 0 34 2;
+#X connect 32 0 34 1;
+#X connect 33 0 11 0;
+#X connect 35 0 27 0;
+#X connect 36 0 0 0;
+#X connect 36 1 0 0;
+#X connect 37 0 36 0;
+#X connect 38 0 41 0;
 #X connect 39 0 38 0;
-#X connect 40 0 44 0;
-#X connect 41 0 40 0;
-#X connect 42 0 41 0;
-#X connect 42 1 26 0;
-#X connect 43 0 41 1;
-#X connect 44 0 41 1;
-#X connect 44 0 45 0;
-#X connect 44 0 55 0;
-#X connect 45 0 1 0;
-#X connect 46 0 48 0;
-#X connect 47 0 46 0;
-#X connect 48 0 49 0;
-#X connect 49 0 50 0;
-#X connect 49 1 44 1;
-#X connect 50 0 45 1;
-#X connect 51 0 47 0;
-#X connect 52 0 39 0;
-#X connect 53 0 52 0;
-#X connect 54 0 53 0;
-#X connect 56 0 39 0;
+#X connect 40 0 39 1;
+#X connect 41 0 39 1;
+#X connect 41 0 42 0;
+#X connect 41 0 52 0;
+#X connect 42 0 1 0;
+#X connect 43 0 45 0;
+#X connect 44 0 43 0;
+#X connect 45 0 46 0;
+#X connect 46 0 47 0;
+#X connect 46 1 41 1;
+#X connect 47 0 42 1;
+#X connect 48 0 44 0;
+#X connect 49 0 37 0;
+#X connect 50 0 49 0;
+#X connect 51 0 50 0;
+#X connect 51 0 1 0;
+#X connect 53 0 37 0;
+#X connect 54 0 39 0;
+#X connect 54 1 26 0;
+#X connect 55 0 25 0;
+#X connect 56 0 20 0;
 #X restore 19 16 pd cenarios;
 #X msg 110 18 dimen 640 480 \, fps 30 \, create \, 1;
 #X obj 415 15 vsl 30 250 0 10000 0 0 minDist-r empty empty 0 -9 0 10
--262144 -1 -1 2500 1;
+-262144 -1 -1 0 1;
 #X obj 348 15 vsl 30 250 0 10000 0 0 maxDist-r empty empty 0 -9 0 10
--262144 -1 -1 5300 1;
+-262144 -1 -1 0 1;
 #X obj 413 277 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-r empty 0 -8
-0 10 -262144 -1 -1 1004.02 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 348 277 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-r empty 0 -8
-0 10 -262144 -1 -1 2128.51 256;
+0 10 -262144 -1 -1 0 256;
 #X text 346 295 MaxD;
 #X text 414 295 MinD;
 #X obj 128 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
