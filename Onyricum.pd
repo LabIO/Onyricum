@@ -1,7 +1,7 @@
-#N canvas 1 221 413 334 10;
-#N canvas 1 205 647 354 kinect 0;
+#N canvas 225 256 413 334 10;
+#N canvas 1 208 647 354 kinect 0;
 #X obj 304 93 gemhead;
-#N canvas 285 341 844 360 properties 0;
+#N canvas 281 343 844 360 properties 0;
 #X obj 13 46 cnv 15 140 220 empty empty empty 20 12 0 14 -204800 -66577
 0;
 #X msg 18 230 led \$1;
@@ -10,7 +10,7 @@
 #X floatatom 18 207 5 0 0 0 - - -, f 5;
 #X msg 95 230 angle \$1;
 #X obj 95 74 vsl 15 128 -30 30 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6350 1;
+-1 -1 5871 1;
 #X floatatom 95 211 5 0 0 0 - - -, f 5;
 #X msg 45 49 0;
 #X text 34 125 GREEN;
@@ -82,6 +82,7 @@ down!!;
 #X msg 80 48 20;
 #X text 105 49 ground;
 #X obj 115 24 r CamAngle;
+#X obj -18 -14 r IsConnected;
 #X connect 1 0 49 0;
 #X connect 2 0 3 0;
 #X connect 3 0 1 0;
@@ -111,6 +112,7 @@ down!!;
 #X connect 62 0 60 0;
 #X connect 63 0 5 0;
 #X connect 65 0 5 0;
+#X connect 66 0 2 0;
 #X restore 2 14 pd properties;
 #X text 312 74 gemhead for rgb;
 #X text 432 73 and for depth;
@@ -123,10 +125,10 @@ down!!;
 #X obj 422 211 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj 491 249 nbx 5 14 -1e+37 1e+37 0 0 empty empty hi_thresh 0 -8
-0 10 -262144 -1 -1 10000 256;
+0 10 -262144 -1 -1 2570.28 256;
 #X obj 401 272 pix_depth2rgba 5000 100;
 #X obj 555 247 nbx 5 14 -1e+37 1e+37 0 0 empty empty lo_thresh 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 803.213 256;
 #N canvas 438 404 569 230 thresholds 0;
 #X obj 69 177 outlet;
 #X msg 31 63 lo_thresh \$1;
@@ -162,9 +164,9 @@ hi_thresh;
 #X msg 538 183 10000;
 #X obj 559 64 r B;
 #X obj 168 32 vsl 15 250 0 10000 0 0 empty maxDist-r empty 0 -9 0 10
--262144 -1 -1 0 1;
+-262144 -1 -1 6400 1;
 #X obj 199 33 vsl 15 250 0 10000 0 0 empty minDist-r empty 0 -9 0 10
--262144 -1 -1 0 1;
+-262144 -1 -1 2000 1;
 #X obj 97 90 vsl 15 128 -30 30 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X msg 47 65 0;
@@ -172,9 +174,9 @@ hi_thresh;
 #X text 107 65 ground;
 #X obj 64 246 s CamAngle;
 #X obj 232 298 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-r empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 803.213 256;
 #X obj 170 298 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-r empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 2570.28 256;
 #X connect 0 0 7 0;
 #X connect 5 0 7 0;
 #X connect 6 0 7 0;
@@ -270,7 +272,7 @@ hi_thresh;
 #X connect 29 0 0 0;
 #X connect 30 0 28 0;
 #X restore 24 72 pd detection;
-#N canvas 569 138 354 250 init 1;
+#N canvas 46 467 354 250 init 0;
 #X obj 55 11 loadbang;
 #X obj 65 44 s B;
 #X obj 129 11 zexy;
@@ -284,7 +286,6 @@ hi_thresh;
 #X connect 3 0 1 0;
 #X connect 5 0 4 0;
 #X connect 6 0 4 0;
-#X connect 7 0 6 0;
 #X restore 24 116 pd init;
 #X obj 24 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -442,40 +443,51 @@ hi_thresh;
 #X connect 56 0 20 0;
 #X restore 24 26 pd cenarios;
 #X obj 224 30 vsl 50 250 0 10000 0 0 minDist-r minDist-android empty
-0 -9 0 10 -262144 -1 -1 0 1;
+0 -9 0 10 -262144 -1 -1 2000 1;
 #X obj 120 29 vsl 50 250 0 10000 0 0 maxDist-r maxDist-android empty
-0 -9 0 10 -262144 -1 -1 0 1;
+0 -9 0 10 -262144 -1 -1 6400 1;
 #X obj 222 290 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-r empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 803.213 256;
 #X obj 121 290 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-r empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 2570.28 256;
 #X text 119 308 MaxD;
 #X text 223 308 MinD;
 #X obj 329 15 bng 50 250 50 0 cenarioBang cenarioBang-android bang_scene
 0 7 0 10 -262144 -1 -1;
 #X obj 328 80 vsl 50 200 -30 30 0 0 CamAngle CamAngle-android empty
-0 -9 0 10 -262144 -1 -1 9950 1;
+0 -9 0 10 -262144 -1 -1 9200 1;
 #X obj 327 290 nbx 5 14 -1e+37 1e+37 0 0 empty CamAngle empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 -2.26131 256;
 #X text 326 307 CamAngle;
-#N canvas 1 56 450 300 connections 0;
-#X obj 32 41 netreceive 7000;
-#X obj 32 87 route maxDist-android minDist-android CamAngle-android
+#N canvas 1 299 450 300 connections 0;
+#X obj 32 11 netreceive 7000;
+#X obj 32 137 route maxDist-android minDist-android CamAngle-android
 cenarioBang-android;
-#X obj 32 245 s maxDist-android;
-#X obj 54 206 s minDist-android;
-#X obj 98 175 s CamAngle-android;
-#X obj 198 145 s cenarioBang-android;
-#X floatatom 118 63 5 0 0 0 - - -, f 5;
+#X obj 32 295 s maxDist-android;
+#X obj 54 256 s minDist-android;
+#X obj 98 225 s CamAngle-android;
+#X obj 198 195 s cenarioBang-android;
+#X floatatom 119 63 5 0 0 0 - - -, f 5;
+#X floatatom 42 195 5 0 0 0 - - -, f 5;
+#X obj 191 56 > 0;
+#X floatatom 349 110 5 0 0 0 - - -, f 5;
+#X floatatom 193 25 5 0 0 0 - - -, f 5;
+#X obj 191 78 * 3;
+#X obj 191 101 s IsConnected;
 #X connect 0 0 1 0;
 #X connect 0 1 6 0;
+#X connect 0 1 8 0;
 #X connect 1 0 2 0;
+#X connect 1 0 7 0;
 #X connect 1 1 3 0;
 #X connect 1 2 4 0;
 #X connect 1 3 5 0;
+#X connect 8 0 11 0;
+#X connect 10 0 8 0;
+#X connect 11 0 12 0;
 #X restore 22 141 pd connections;
 #X obj 23 261 s H-Flip;
-#X obj 23 241 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 23 241 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 26 203 s DelTime;
 #X floatatom 26 177 5 0 0 0 - - -, f 5;

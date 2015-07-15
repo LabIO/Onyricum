@@ -1,48 +1,72 @@
-#N canvas 432 261 559 338 10;
-#X obj 206 26 vsl 50 250 0 10000 0 0 maxDist-android empty empty 0
--9 0 10 -262144 -1 -1 0 1;
-#X obj 207 287 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-android empty
-0 -8 0 10 -262144 -1 -1 0 256;
-#X text 205 305 MaxD;
-#N canvas 33 58 450 300 conn 1;
-#X obj 117 191 netsend;
-#X obj 117 245 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 607 328 573 363 10;
+#X obj 198 16 vsl 80 270 0 10000 0 0 maxDist-android empty empty 0
+-9 0 10 -262144 -1 -1 5900 1;
+#X obj 207 305 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-android empty
+0 -8 0 10 -262144 -1 -1 2369.48 256;
+#X text 205 323 MaxD;
+#N canvas 393 175 601 456 conn 0;
+#X obj 117 301 netsend;
+#X obj 117 355 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 117 75 read ip.txt \, rewind \, bang;
 #X obj 117 112 textfile;
-#X msg 126 167 disconnect;
+#X msg 126 277 disconnect;
 #X obj 300 50 delay 1000;
 #X obj 300 109 s CamAngle-android-set;
 #X msg 300 86 0;
-#X obj 130 217 outlet;
-#X obj 146 3 inlet;
-#X obj 117 140 list prepend connect;
+#X obj 130 327 outlet;
+#X msg -4 46 connect 192.168.1.165 7000;
+#X obj 146 3 r connect;
+#X obj 117 376 s connected;
+#X obj 218 304 r maxDist-android;
+#X msg 206 337 send maxDist-android \$1;
+#X obj 376 302 r minDist-android;
+#X msg 364 334 send minDist-android \$1;
+#X obj 227 373 r CamAngle-android;
+#X msg 215 406 send CamAngle-android \$1;
+#X obj 411 374 r cenarioBang-android;
+#X obj 535 244 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 399 407 send cenarioBang-android bang;
+#X obj 118 153 list prepend connect;
+#X obj 118 190 list trim;
 #X connect 0 0 1 0;
 #X connect 0 0 8 0;
+#X connect 1 0 11 0;
 #X connect 2 0 3 0;
-#X connect 3 0 10 0;
+#X connect 3 0 21 0;
 #X connect 4 0 0 0;
 #X connect 5 0 7 0;
 #X connect 7 0 6 0;
-#X connect 9 0 2 0;
-#X connect 9 0 5 0;
-#X connect 10 0 0 0;
-#X restore 27 82 pd conn;
-#X obj 305 27 vsl 50 250 0 10000 0 0 minDist-android empty empty 0
+#X connect 9 0 0 0;
+#X connect 10 0 2 0;
+#X connect 10 0 5 0;
+#X connect 12 0 13 0;
+#X connect 13 0 0 0;
+#X connect 14 0 15 0;
+#X connect 15 0 0 0;
+#X connect 16 0 17 0;
+#X connect 17 0 0 0;
+#X connect 18 0 20 0;
+#X connect 19 0 20 0;
+#X connect 20 0 0 0;
+#X connect 21 0 22 0;
+#X connect 22 0 0 0;
+#X restore 110 25 pd conn;
+#X obj 317 16 vsl 80 270 0 10000 0 0 minDist-android empty empty 0
 -9 0 10 -262144 -1 -1 0 1;
-#X obj 303 287 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-android empty
+#X obj 324 306 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-android empty
 0 -8 0 10 -262144 -1 -1 0 256;
-#X text 304 305 MinD;
-#X obj 401 77 vsl 50 200 -30 30 0 0 CamAngle-android CamAngle-android-set
-empty 0 -9 0 10 -262144 -1 -1 0 1;
-#X obj 400 287 nbx 5 14 -1e+37 1e+37 0 0 empty CamAngle-android empty
+#X text 325 324 MinD;
+#X obj 450 16 vsl 80 270 -30 30 0 0 CamAngle-android CamAngle-android-set
+empty 0 -9 0 10 -262144 -1 -1 9950 1;
+#X obj 450 307 nbx 5 14 -1e+37 1e+37 0 0 empty CamAngle-android empty
 0 -8 0 10 -262144 -1 -1 0 256;
-#X text 399 304 CamAngle;
-#X obj 400 18 bng 50 250 50 0 cenarioBang-android empty bang_scene
+#X text 449 324 CamAngle;
+#X obj 43 233 bng 80 250 50 0 cenarioBang-android empty bang_scene
 0 7 0 10 -262144 -1 -1;
-#X obj 27 106 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 25 21 bng 50 250 50 0 empty empty Connect 0 -10 0 10 -262144
+#X obj 26 88 tgl 30 0 empty connected empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 25 21 bng 50 250 50 0 connect empty Connect 0 -10 0 10 -262144
 -1 -1;
-#X connect 3 0 11 0;
-#X connect 12 0 3 0;
+#X text 30 182 ONYRICUM CONTROL;
