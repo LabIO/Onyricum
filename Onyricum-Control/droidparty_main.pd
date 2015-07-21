@@ -1,10 +1,10 @@
-#N canvas 607 328 573 363 10;
-#X obj 198 16 vsl 80 270 0 10000 0 0 maxDist-android empty empty 0
--9 0 10 -262144 -1 -1 5900 1;
+#N canvas 603 330 573 363 10;
+#X obj 201 12 vsl 80 270 0 10000 0 0 maxDist-android empty empty 0
+-9 0 10 -262144 -1 -1 0 1;
 #X obj 207 305 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-android empty
-0 -8 0 10 -262144 -1 -1 2369.48 256;
+0 -8 0 10 -262144 -1 -1 0 256;
 #X text 205 323 MaxD;
-#N canvas 393 175 601 456 conn 0;
+#N canvas 382 171 601 456 conn 0;
 #X obj 117 301 netsend;
 #X obj 117 355 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -30,6 +30,8 @@
 #X msg 399 407 send cenarioBang-android bang;
 #X obj 118 153 list prepend connect;
 #X obj 118 190 list trim;
+#X obj 355 191 r DelTime;
+#X msg 336 236 send DelTime-ctl \$1;
 #X connect 0 0 1 0;
 #X connect 0 0 8 0;
 #X connect 1 0 11 0;
@@ -52,21 +54,26 @@
 #X connect 20 0 0 0;
 #X connect 21 0 22 0;
 #X connect 22 0 0 0;
-#X restore 110 25 pd conn;
+#X connect 23 0 24 0;
+#X connect 24 0 0 0;
+#X restore 103 51 pd conn;
 #X obj 317 16 vsl 80 270 0 10000 0 0 minDist-android empty empty 0
 -9 0 10 -262144 -1 -1 0 1;
 #X obj 324 306 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-android empty
 0 -8 0 10 -262144 -1 -1 0 256;
 #X text 325 324 MinD;
 #X obj 450 16 vsl 80 270 -30 30 0 0 CamAngle-android CamAngle-android-set
-empty 0 -9 0 10 -262144 -1 -1 9950 1;
+empty 0 -9 0 10 -262144 -1 -1 0 1;
 #X obj 450 307 nbx 5 14 -1e+37 1e+37 0 0 empty CamAngle-android empty
 0 -8 0 10 -262144 -1 -1 0 256;
 #X text 449 324 CamAngle;
-#X obj 43 233 bng 80 250 50 0 cenarioBang-android empty bang_scene
+#X obj 23 233 bng 80 250 50 0 cenarioBang-android empty bang_scene
 0 7 0 10 -262144 -1 -1;
 #X obj 26 88 tgl 30 0 empty connected empty 17 7 0 10 -262144 -1 -1
 0 1;
 #X obj 25 21 bng 50 250 50 0 connect empty Connect 0 -10 0 10 -262144
 -1 -1;
-#X text 30 182 ONYRICUM CONTROL;
+#X text 28 326 ONYRICUM CONTROL;
+#X obj 95 89 nbx 2 55 -1e+37 1e+37 0 0 DelTime empty empty 0 -8 0 60
+-262144 -1 -1 0 256;
+#X obj 29 170 numberbox 64 32 numreceive DelTime 0 60 0;

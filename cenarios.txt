@@ -11,3 +11,7 @@
 ./Cenarios/mariobros_fundo.png;
 ./Cenarios/mariobros_frente.png;
 
+./Cenarios/Achmed_1-back.png;
+./Cenarios/Achmed_1-front.png;
+
+
