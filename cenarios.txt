@@ -5,13 +5,38 @@
 ./Cenarios/godzilla-bckg.jpg;
 ./Cenarios/Godzilla2.png;
 
-./Cenarios/Star-Wars-Battlefront.jpg;
-./Cenarios/Godzilla2.png;
-
 ./Cenarios/mariobros_fundo.png;
 ./Cenarios/mariobros_frente.png;
 
 ./Cenarios/Achmed_1-back.png;
 ./Cenarios/Achmed_1-front.png;
 
+./Cenarios/Unicorn-back.png;
+./Cenarios/Unicorn-front.png;
 
+./Cenarios/amarcord-back.png;
+./Cenarios/amarcord-front.png;
+
+./Cenarios/Achmed_2-back.png;
+./Cenarios/Achmed_2-front.png;
+
+./Cenarios/Star-Wars-Battlefront.jpg;
+./Cenarios/Godzilla2.png;
+
+./Cenarios/space-back.png;
+./Cenarios/space-front.png;
+
+./Cenarios/panico-back.png;
+./Cenarios/panico-front.png;
+
+./Cenarios/padrino-back.png;
+./Cenarios/padrino-front.png;
+
+./Cenarios/teletubbies-back.png;
+./Cenarios/teletubbies-front.png;
+
+./Cenarios/Star-Wars-Battlefront.jpg;
+./Cenarios/Godzilla2.png;
+
+./Cenarios/ALICE-back.png;
+./Cenarios/ALICE-front.png;
