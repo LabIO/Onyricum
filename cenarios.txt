@@ -30,7 +30,7 @@
 ./Cenarios/panico-front.png;
 
 ./Cenarios/padrino-back.png;
-./Cenarios/padrino-front.png;
+./Cenarios/padrino-front.tif;
 
 ./Cenarios/teletubbies-back.png;
 ./Cenarios/teletubbies-front.png;
