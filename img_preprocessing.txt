@@ -1,0 +1,18 @@
+How to treat images to use with Onirycum
+
+Using GIMP or Photoshop etc.
+
+Open the image.
+Set size to 2560x1600.
+
+method 1
+Select the foreground and copy it.
+Open a new layer with transparency.
+Paste in it the foreground selection.
+Export it as .png (or .tif)
+
+
+method 2 - with homogeneous background color
+Select color-to-alpha and choose the color 
+to be considered transparent.
+Export to .png

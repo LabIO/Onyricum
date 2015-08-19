@@ -40,3 +40,6 @@
 
 ./Cenarios/ALICE-back.png;
 ./Cenarios/ALICE-front.png;
+
+./Cenarios/rand_rect_N250.tif;
+./Cenarios/rand_rect_N50.png;
