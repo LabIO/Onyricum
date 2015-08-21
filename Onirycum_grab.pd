@@ -1,5 +1,5 @@
-#N canvas 4 75 413 334 10;
-#N canvas 1 215 647 354 kinect 0;
+#N canvas 1 80 422 354 10;
+#N canvas 153 276 647 354 kinect 0;
 #X obj 304 93 gemhead;
 #N canvas 279 344 844 360 properties 0;
 #X obj 13 46 cnv 15 140 220 empty empty empty 20 12 0 14 -204800 -66577
@@ -10,7 +10,7 @@
 #X floatatom 18 207 5 0 0 0 - - -, f 5;
 #X msg 95 230 angle \$1;
 #X obj 95 74 vsl 15 128 -30 30 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 10654 1;
+-1 -1 4380 1;
 #X floatatom 95 211 5 0 0 0 - - -, f 5;
 #X msg 45 49 0;
 #X text 34 125 GREEN;
@@ -124,10 +124,10 @@ down!!;
 #X obj 422 211 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj 491 249 nbx 5 14 -1e+37 1e+37 0 0 empty empty hi_thresh 0 -8
-0 10 -262144 -1 -1 2814.66 256;
+0 10 -262144 -1 -1 6749.44 256;
 #X obj 401 272 pix_depth2rgba 5000 100;
 #X obj 555 247 nbx 5 14 -1e+37 1e+37 0 0 empty empty lo_thresh 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 890.353 256;
 #N canvas 438 404 569 230 thresholds 0;
 #X obj 69 177 outlet;
 #X msg 31 63 lo_thresh \$1;
@@ -145,9 +145,9 @@ hi_thresh;
 #X connect 3 0 1 0;
 #X connect 4 0 2 0;
 #X restore 299 238 pd thresholds;
-#X obj 304 54 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 304 54 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 425 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 425 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 409 154 Depth;
 #X obj 399 296 s Dimg;
@@ -157,15 +157,15 @@ hi_thresh;
 #X msg 482 179 1;
 #X msg 555 155 4000;
 #X msg 598 155 2000;
-#X obj 421 11 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 421 11 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 579 182 0;
 #X msg 538 183 10000;
 #X obj 559 64 r B;
 #X obj 168 32 vsl 15 250 0 10000 0 0 empty maxDist-r empty 0 -9 0 10
--262144 -1 -1 7009 1;
+-262144 -1 -1 16806 1;
 #X obj 199 33 vsl 15 250 0 10000 0 0 empty minDist-r empty 0 -9 0 10
--262144 -1 -1 0 1;
+-262144 -1 -1 2217 1;
 #X obj 97 90 vsl 15 128 -30 30 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X msg 47 65 0;
@@ -173,9 +173,9 @@ hi_thresh;
 #X text 107 65 ground;
 #X obj 64 246 s CamAngle;
 #X obj 232 298 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-r empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 890.353 256;
 #X obj 170 298 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-r empty 0 -8
-0 10 -262144 -1 -1 2814.66 256;
+0 10 -262144 -1 -1 6749.44 256;
 #X obj 304 133 pix_freenect 0 1 1;
 #X connect 0 0 36 0;
 #X connect 5 0 36 0;
@@ -208,7 +208,7 @@ hi_thresh;
 #X connect 36 0 17 0;
 #X connect 36 1 10 0;
 #X restore 24 49 pd kinect;
-#N canvas 515 112 439 592 detection 0;
+#N canvas 509 115 439 592 detection 0;
 #X obj 54 469 pix_texture;
 #X obj 54 538 rectangle 5.33 4;
 #X obj 53 45 r RGBimg;
@@ -272,7 +272,7 @@ hi_thresh;
 #X connect 29 0 0 0;
 #X connect 30 0 28 0;
 #X restore 24 72 pd detection;
-#N canvas 53 529 270 235 init 0;
+#N canvas 47 507 270 235 init 1;
 #X obj 55 11 loadbang;
 #X obj 65 44 s B;
 #X obj 129 11 zexy;
@@ -285,13 +285,14 @@ hi_thresh;
 #X connect 0 0 1 0;
 #X connect 0 0 6 0;
 #X connect 3 0 1 0;
+#X connect 3 0 8 0;
 #X connect 5 0 4 0;
 #X connect 7 0 4 0;
 #X connect 8 0 4 0;
 #X restore 24 116 pd init;
 #X obj 24 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 459 118 614 639 cenarios 0;
+#N canvas 709 103 614 639 cenarios 0;
 #X obj 287 348 textfile;
 #X msg 287 112 read cenarios.txt \, rewind;
 #X obj 18 217 pix_texture;
@@ -445,21 +446,21 @@ hi_thresh;
 #X connect 56 0 43 0;
 #X restore 24 26 pd cenarios;
 #X obj 224 30 vsl 50 250 0 10000 0 0 minDist-r minDist-android empty
-0 -9 0 10 -262144 -1 -1 0 1;
+0 -9 0 10 -262144 -1 -1 2217 1;
 #X obj 120 29 vsl 50 250 0 10000 0 0 maxDist-r maxDist-android empty
-0 -9 0 10 -262144 -1 -1 7009 1;
+0 -9 0 10 -262144 -1 -1 16806 1;
 #X obj 222 290 nbx 5 14 -1e+37 1e+37 0 0 empty minDist-r empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 890.353 256;
 #X obj 121 290 nbx 5 14 -1e+37 1e+37 0 0 empty maxDist-r empty 0 -8
-0 10 -262144 -1 -1 2814.66 256;
+0 10 -262144 -1 -1 6749.44 256;
 #X text 119 308 MaxD;
 #X text 223 308 MinD;
 #X obj 329 15 bng 50 250 50 0 cenarioBang cenarioBang-android bang_scene
 0 7 0 10 -262144 -1 -1;
 #X obj 328 80 vsl 50 200 -30 30 0 0 CamAngle CamAngle-android empty
-0 -9 0 10 -262144 -1 -1 16694 1;
+0 -9 0 10 -262144 -1 -1 6864 1;
 #X obj 327 290 nbx 5 14 -1e+37 1e+37 0 0 empty CamAngle empty 0 -8
-0 10 -262144 -1 -1 20.3345 256;
+0 10 -262144 -1 -1 -9.30561 256;
 #X text 326 307 CamAngle;
 #N canvas 1 301 450 300 connections 0;
 #X obj 32 11 netreceive 7000;
@@ -500,24 +501,24 @@ cenarioBang-android DelTime-ctl snap-android;
 1;
 #X obj 26 203 s DelTime;
 #X floatatom 26 177 5 0 0 0 - DelTime-ctl -, f 5;
-#N canvas 246 126 449 595 snap 0;
+#N canvas 50 121 449 595 snap 0;
 #X obj 168 237 spigot;
 #X obj 220 212 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
 1;
 #X obj 137 217 t a b;
 #X obj 168 257 t b b;
-#X msg 204 257 0;
+#X msg 241 250 0;
 #X obj 133 32 gemhead 79;
-#X obj 189 522 pix_writer;
-#X obj 169 328 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 186 554 pix_writer;
+#X obj 209 335 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 137 286 pix_snap 0 0 800 600;
-#X msg 197 390 file ./oni_flash 99;
-#X text 188 327 WRITE!;
-#X obj 198 364 r B;
+#X msg 277 524 file ./oni_flash 99;
+#X text 227 335 WRITE!;
+#X obj 278 498 r B;
 #X obj 210 84 r snap;
 #X msg 208 139 1, f 1;
-#N canvas 1 57 342 285 show_check_snap 0;
+#N canvas 1 128 342 285 show_check_snap 0;
 #X obj 41 144 pix_texture;
 #X obj 41 213 rectangle 5.33 4;
 #X obj 41 181 translateXYZ 0 0 0.65;
@@ -542,14 +543,22 @@ cenarioBang-android DelTime-ctl snap-android;
 #X connect 9 0 8 1;
 #X connect 10 0 8 0;
 #X connect 11 0 9 0;
-#X restore 26 387 pd show_check_snap;
-#X obj 127 365 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 14 550 pd show_check_snap;
+#X obj 115 528 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 222 196 SNAP!;
 #X obj 363 388 pack f f f;
 #X obj 353 344 time - - -;
 #X obj 213 114 t b b;
-#X msg 258 465 file ./oni_\$1-\$2-\$3- 99;
+#X msg 275 477 file ./oni_\$1-\$2-\$3- 99;
+#X obj 7 324 gemhead 79;
+#X obj 9 365 alpha;
+#X obj 10 443 pix_image ./Cenarios/casasualbero-front.png;
+#X obj 98 481 pix_add;
+#X obj 14 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 133 7 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
 #X connect 0 0 3 0;
 #X connect 1 0 0 1;
 #X connect 2 0 8 0;
@@ -560,8 +569,7 @@ cenarioBang-android DelTime-ctl snap-android;
 #X connect 4 0 1 0;
 #X connect 5 0 2 0;
 #X connect 7 0 6 0;
-#X connect 8 0 6 0;
-#X connect 8 0 14 0;
+#X connect 8 0 24 0;
 #X connect 9 0 6 0;
 #X connect 11 0 9 0;
 #X connect 12 0 19 0;
@@ -574,7 +582,14 @@ cenarioBang-android DelTime-ctl snap-android;
 #X connect 19 0 13 0;
 #X connect 19 1 18 0;
 #X connect 20 0 6 0;
-#X restore 29 295 pd snap;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 1;
+#X connect 24 0 6 0;
+#X connect 24 0 14 0;
+#X connect 25 0 21 0;
+#X connect 26 0 5 0;
+#X restore 26 294 pd snap;
 #X connect 3 0 2 0;
 #X connect 17 0 16 0;
 #X connect 19 0 18 0;
